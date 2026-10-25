@@ -5,6 +5,9 @@ config.py
 # SQLite 数据库文件
 *.db
 
+# 上传的物品照片（用户数据，不入库）
+uploads/
+
 # Python 缓存
 __pycache__/
 *.pyc
