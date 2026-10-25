@@ -2,3 +2,4 @@ streamlit>=1.30
 zhipuai>=2.1
 numpy
 pillow
+sniffio
