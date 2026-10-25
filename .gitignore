@@ -1,0 +1,28 @@
+# 本地敏感配置（含 API Key）—— 绝不提交
+config.py
+.env
+
+# SQLite 数据库文件
+*.db
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# IDE / 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# Streamlit 运行缓存
+.streamlit/
