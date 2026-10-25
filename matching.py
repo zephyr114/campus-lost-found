@@ -8,11 +8,18 @@ import numpy as np
 import os
 import base64
 
-# ========= 智谱 API Key 读取顺序：config.py（本地，不入库）> 环境变量 ZHIPUAI_API_KEY =========
+# ========= 智谱 API Key 读取顺序：config.py（本地）> 环境变量 > Streamlit Cloud secrets =========
 try:
     from config import API_KEY          # config.py 已被 .gitignore 排除，不会上传到 GitHub
 except ImportError:
     API_KEY = os.environ.get("ZHIPUAI_API_KEY", "")
+# Streamlit Cloud 部署：Secrets 通过 st.secrets 注入，不在 os.environ 里
+if not API_KEY:
+    try:
+        import streamlit as st
+        API_KEY = st.secrets.get("ZHIPUAI_API_KEY", "")
+    except Exception:
+        pass
 
 # API Key 未配置时给出明确提示，避免程序崩溃
 if API_KEY == "" or "填入" in API_KEY:
